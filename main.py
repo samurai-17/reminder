@@ -1,6 +1,8 @@
 import asyncio
 import sqlite3
 import json
+import dotenv
+import os
 from datetime import datetime, timedelta
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import Command
@@ -9,7 +11,9 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-bot = Bot("8194727128:AAEiGaDcg8qnepSdb4SaXkuSj0zchqxO6rc")
+dotenv.load_dotenv()
+token = os.getenv("token_tg")
+bot = Bot(token)
 dp = Dispatcher()
 
 scheduler = AsyncIOScheduler()
